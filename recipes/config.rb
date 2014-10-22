@@ -55,7 +55,7 @@ if node['coopr'].key?('provisioner_site')
   end
 end # End provisioner-site.xml
 
-execute 'copy logback.xml from conf.dist' do
+execute 'copy logback.xml from coopr conf.dist' do
   command "cp /etc/coopr/conf.dist/logback.xml /etc/coopr/#{node['coopr']['conf_dir']}"
   not_if { ::File.exist?("/etc/coopr/#{node['coopr']['conf_dir']}/logback.xml") }
 end
