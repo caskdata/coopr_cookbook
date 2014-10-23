@@ -24,6 +24,7 @@
 * `fullstack` - Installs all packages and services on a single node
 * `ngui` - Installs the `coopr-ngui` package and service
 * `repo` - Sets up package manager repositories for coopr packages
+* `ui` - Installs the `coopr-ui` package and service
 
 # Author
 
