@@ -7,7 +7,6 @@
 
 * Oracle Java JDK 6+ (provided by `java` cookbook)
 * ZooKeeper (provided by `hadoop` cookbook)
-* Node.JS 0.10.26+ (provided by `nodejs` cookbook)
 * JDBC-compatible database
 
 # Usage
@@ -21,15 +20,9 @@
 # Recipes
 
 * `config` - Configures all services
-* `default` - Installs `coopr` base package and performs configuration of `coopr-site.xml`
+* `default` - Runs `config` and `repo` recipes
 * `fullstack` - Installs all packages and services on a single node
-* `gateway` - Installs the `coopr-gateway` package and `coopr-gateway` and `coopr-router` services
-* `init` - Sets up HDFS
-* `kafka` - Installs the `coopr-kafka` package and `coopr-kafka-server` service
-* `master` - Installs the `coopr-master` package and service
 * `repo` - Sets up package manager repositories for coopr packages
-* `security` - Installs the `coopr-security` package and `coopr-auth-server` service
-* `web_app` - Installs the `coopr-web-app` package and service
 
 # Author
 
