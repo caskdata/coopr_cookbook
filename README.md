@@ -25,6 +25,7 @@
 * `ngui` - Installs the `coopr-ngui` package and service
 * `provisioner` - Installs the `coopr-provisioner` package and service
 * `repo` - Sets up package manager repositories for coopr packages
+* `server` - Installs the `coopr-server` package and service
 * `ui` - Installs the `coopr-ui` package and service
 
 # Author
