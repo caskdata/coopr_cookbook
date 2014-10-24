@@ -19,6 +19,6 @@
 
 include_recipe 'coopr::default'
 
-%w(ngui provisioner server ui).each do |recipe|
+%w(provisioner server ui).each do |recipe|
   include_recipe "coopr::#{recipe}"
 end
