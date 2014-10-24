@@ -34,8 +34,8 @@ if node['coopr'].key?('coopr_site')
   template "#{coopr_conf_dir}/coopr-site.xml" do
     source 'generic-site.xml.erb'
     mode 0644
-    owner 'coopr'
-    group 'coopr'
+    owner 'root'
+    group 'root'
     variables my_vars
     action :create
   end
@@ -47,18 +47,13 @@ if node['coopr'].key?('provisioner_site')
 
   template "#{coopr_conf_dir}/provisioner-site.xml" do
     source 'generic-site.xml.erb'
-    mode 0600
-    owner 'coopr'
-    group 'coopr'
+    mode 0644
+    owner 'root'
+    group 'root'
     variables my_vars
     action :create
   end
 end # End provisioner-site.xml
-
-execute 'copy logback.xml from coopr conf.dist' do
-  command "cp /etc/coopr/conf.dist/logback.xml /etc/coopr/#{node['coopr']['conf_dir']}"
-  not_if { ::File.exist?("/etc/coopr/#{node['coopr']['conf_dir']}/logback.xml") }
-end
 
 # Update alternatives to point to our configuration
 execute 'update coopr-conf alternatives' do

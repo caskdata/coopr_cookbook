@@ -30,6 +30,11 @@ package 'coopr-server' do
   action :install
 end
 
+execute 'copy logback.xml from coopr conf.dist' do
+  command "cp /etc/coopr/conf.dist/logback.xml /etc/coopr/#{node['coopr']['conf_dir']}"
+  not_if { ::File.exist?("/etc/coopr/#{node['coopr']['conf_dir']}/logback.xml") }
+end
+
 service 'coopr-server' do
   status_command 'service coopr-server status'
   action :nothing
