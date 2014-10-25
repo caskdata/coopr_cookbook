@@ -18,24 +18,23 @@
 #
 
 case node['platform_family']
+when 'debian'
+  include_recipe 'apt'
+  apt_repository 'cask' do
+    uri node['coopr']['repo']['apt_repo_url']
+    distribution node['lsb']['codename']
+    components node['coopr']['repo']['apt_components']
+    action :add
+    arch 'amd64'
+    key "#{node['coopr']['repo']['apt_repo_url']}/pubkey.gpg"
+  end
 when 'rhel'
   include_recipe 'yum'
   yum_repository 'cask' do
     description 'Cask YUM repository'
-    url node['coopr']['repo']['url']
-    gpgkey node['coopr']['repo']['key_url']
-    gpgcheck false
+    url node['coopr']['repo']['yum_repo_url']
+    gpgkey "#{node['coopr']['repo']['yum_repo_url']}/pubkey.gpg"
+    gpgcheck true
     action :add
-  end
-when 'debian'
-  include_recipe 'apt'
-  apt_repository 'cask' do
-    uri node['coopr']['repo']['url']
-    distribution node['lsb']['codename']
-    components node['coopr']['repo']['components']
-    action :add
-    arch 'amd64'
-    trusted true
-    key "#{node['coopr']['repo']['url']}/pubkey.gpg"
   end
 end

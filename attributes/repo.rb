@@ -18,12 +18,6 @@
 #
 
 # URL to repository
-case node['platform_family']
-when 'debian'
-  default['coopr']['repo']['url'] = 'http://repository.cask.co/ubuntu/precise/amd64/releases'
-else
-  default['coopr']['repo']['url'] = 'http://repository.cask.co/centos/6/x86_64/releases'
-  default['coopr']['repo']['key_url'] = 'http://repository.cask.co/centos/6/x86_64/pubkey.gpg'
-end
-# Repository components to use
-default['coopr']['repo']['components'] = ['releases']
+default['coopr']['repo']['apt_repo_url'] = 'http://repository.cask.co/ubuntu/precise/amd64/releases'
+default['coopr']['repo']['apt_components'] = ['releases']
+default['coopr']['repo']['yum_repo_url'] = 'http://repository.cask.co/centos/6/x86_64/releases'
