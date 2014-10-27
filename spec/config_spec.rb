@@ -13,10 +13,6 @@ describe 'coopr::config' do
       expect(chef_run).to create_directory('/etc/coopr/conf.chef')
     end
 
-    it 'runs execute[copy logback.xml from coopr conf.dist]' do
-      expect(chef_run).to run_execute('copy logback.xml from coopr conf.dist')
-    end
-
     it 'runs execute[update coopr-conf alternatives]' do
       expect(chef_run).to run_execute('update coopr-conf alternatives')
     end
