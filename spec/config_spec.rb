@@ -13,6 +13,15 @@ describe 'coopr::config' do
       expect(chef_run).to create_directory('/etc/coopr/conf.chef')
     end
 
+    %w(
+      coopr-site.xml
+      provisioner-site.xml
+    ).each do |file|
+      it "creates #{file} from template" do
+        expect(chef_run).to create_template("/etc/coopr/conf.chef/#{file}")
+      end
+    end
+
     it 'runs execute[update coopr-conf alternatives]' do
       expect(chef_run).to run_execute('update coopr-conf alternatives')
     end
