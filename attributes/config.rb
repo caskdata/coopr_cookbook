@@ -20,6 +20,10 @@
 # Default: conf.chef
 default['coopr']['conf_dir'] = 'conf.chef'
 
+# User/Group
+default['coopr']['user'] = 'coopr'
+default['coopr']['group'] = 'coopr'
+
 # coopr-site.xml
 # default['coopr']['coopr_site']['server.zookeeper.quorum'] = 'localhost:2181'
 default['coopr']['coopr_site']['server.host'] = '127.0.0.1'
