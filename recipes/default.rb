@@ -18,4 +18,15 @@
 #
 
 include_recipe 'coopr::repo'
+
+# Create our user and group
+group node['coopr']['group'] do
+  action :create
+end
+
+user node['coopr']['user'] do
+  action :create
+  gid node['coopr']['group']
+end
+
 include_recipe 'coopr::config'

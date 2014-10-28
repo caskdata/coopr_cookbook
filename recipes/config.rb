@@ -27,33 +27,34 @@ directory coopr_conf_dir do
   recursive true
 end
 
-# Setup coopr-site.xml
-if node['coopr'].key?('coopr_site')
-  my_vars = { :options => node['coopr']['coopr_site'] }
+# Setup coopr-site.xml provisioner-site.xml
+%w(coopr_site provisioner_site).each do |sitefile|
+  next unless node['coopr'].key?(sitefile)
+  my_vars = { :options => node['coopr'][sitefile] }
 
-  template "#{coopr_conf_dir}/coopr-site.xml" do
+  template "#{coopr_conf_dir}/#{sitefile.gsub('_', '-')}.xml" do
     source 'generic-site.xml.erb'
-    mode 0644
+    mode '0644'
     owner 'root'
     group 'root'
+    action :create
+    variables my_vars
+  end
+end # End coopr-site.xml provisioner-site.xml
+
+# Setup coopr-security.xml
+if node['coopr'].key?('coopr_security')
+  my_vars = { :options => node['coopr']['coopr_security'] }
+
+  template "#{coopr_conf_dir}/coopr-security.xml" do
+    source 'generic-site.xml.erb'
+    mode 0600
+    owner node['coopr']['user']
+    group node['coopr']['group']
     variables my_vars
     action :create
   end
-end # End coopr-site.xml
-
-# Setup provisioner-site.xml
-if node['coopr'].key?('provisioner_site')
-  my_vars = { :options => node['coopr']['provisioner_site'] }
-
-  template "#{coopr_conf_dir}/provisioner-site.xml" do
-    source 'generic-site.xml.erb'
-    mode 0644
-    owner 'root'
-    group 'root'
-    variables my_vars
-    action :create
-  end
-end # End provisioner-site.xml
+end # End coopr-security.xml
 
 # Update alternatives to point to our configuration
 execute 'update coopr-conf alternatives' do
