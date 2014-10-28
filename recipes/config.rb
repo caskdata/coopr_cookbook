@@ -48,10 +48,9 @@ if node['coopr'].key?('coopr_security')
 
   template "#{coopr_conf_dir}/coopr-security.xml" do
     source 'generic-site.xml.erb'
-    ### TODO: this needs to only be readable by daemon user
-    mode 0644
-    owner 'root'
-    group 'root'
+    mode 0600
+    owner node['coopr']['user']
+    group node['coopr']['group']
     variables my_vars
     action :create
   end
