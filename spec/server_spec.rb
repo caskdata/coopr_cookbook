@@ -13,6 +13,14 @@ describe 'coopr::server' do
       expect(chef_run).to install_package('coopr-server')
     end
 
+    it 'runs execute[copy logback.xml from coopr conf.dist]' do
+      expect(chef_run).to run_execute('copy logback.xml from coopr conf.dist')
+    end
+
+    it 'logs JAVA_HOME' do
+      expect(chef_run).to write_log('JAVA_HOME = /usr/lib/jvm/java')
+    end
+
     it 'creates coopr-server service, but does not run it' do
       expect(chef_run).not_to start_service('coopr-server')
     end
