@@ -16,6 +16,5 @@ describe 'coopr::provisioner' do
     it 'creates coopr-provisioner service, but does not run it' do
       expect(chef_run).not_to start_service('coopr-provisioner')
     end
-
   end
 end

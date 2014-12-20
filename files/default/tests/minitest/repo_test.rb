@@ -1,7 +1,6 @@
 require File.expand_path('../support/helpers', __FILE__)
 
 describe 'coopr::repo' do
-
   include Helpers::Coopr
 
   # Example spec tests can be found at http://git.io/Fahwsw
@@ -22,5 +21,4 @@ describe 'coopr::repo' do
       file('/etc/apt/sources.list.d/cask.list').must_include "#{node['coopr']['repo']['url']}"
     end
   end
-
 end

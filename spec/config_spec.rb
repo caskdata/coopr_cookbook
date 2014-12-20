@@ -25,6 +25,5 @@ describe 'coopr::config' do
     it 'runs execute[update coopr-conf alternatives]' do
       expect(chef_run).to run_execute('update coopr-conf alternatives')
     end
-
   end
 end

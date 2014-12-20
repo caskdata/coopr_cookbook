@@ -11,7 +11,6 @@ describe 'coopr::repo' do
     it 'adds cask yum_repository' do
       expect(chef_run).to add_yum_repository('cask')
     end
-
   end
   context 'on Ubuntu 12.0.4' do
     let(:chef_run) do

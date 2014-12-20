@@ -24,6 +24,5 @@ describe 'coopr::server' do
     it 'creates coopr-server service, but does not run it' do
       expect(chef_run).not_to start_service('coopr-server')
     end
-
   end
 end

@@ -15,6 +15,5 @@ describe 'coopr::ui' do
     it 'creates coopr-ui service, but does not run it' do
       expect(chef_run).not_to start_service('coopr-ui')
     end
-
   end
 end

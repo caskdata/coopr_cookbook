@@ -16,6 +16,5 @@ describe 'coopr::default' do
     it 'create coopr group' do
       expect(chef_run).to create_group('coopr')
     end
-
   end
 end
