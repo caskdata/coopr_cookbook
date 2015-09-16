@@ -32,7 +32,7 @@ end
   next unless node['coopr'].key?(sitefile)
   my_vars = { :options => node['coopr'][sitefile] }
 
-  template "#{coopr_conf_dir}/#{sitefile.gsub('_', '-')}.xml" do
+  template "#{coopr_conf_dir}/#{sitefile.tr('_', '-')}.xml" do
     source 'generic-site.xml.erb'
     mode '0644'
     owner 'root'
