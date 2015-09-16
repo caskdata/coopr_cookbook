@@ -3,9 +3,12 @@
 [![Cookbook Version](http://img.shields.io/cookbook/v/coopr.svg)](https://supermarket.getchef.com/cookbooks/coopr)
 [![Build Status](http://img.shields.io/travis/caskdata/coopr_cookbook.svg)](http://travis-ci.org/caskdata/coopr_cookbook)
 
-# Requirements
+## Requirements
 
-* Oracle Java JDK 6+ (provided by `java` cookbook)
+* Oracle Java JDK 6+ (JDK 7 provided by `java` cookbook)
+
+## Optional dependencies
+
 * ZooKeeper (provided by `hadoop` cookbook)
 * JDBC-compatible database
 
