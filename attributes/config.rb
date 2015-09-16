@@ -2,7 +2,7 @@
 # Cookbook Name:: coopr
 # Attribute:: config
 #
-# Copyright © 2013-2014 Cask Data, Inc.
+# Copyright © 2013-2015 Cask Data, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,8 +25,12 @@ default['coopr']['user'] = 'coopr'
 default['coopr']['group'] = 'coopr'
 
 # coopr-site.xml
-# default['coopr']['coopr_site']['server.zookeeper.quorum'] = 'localhost:2181'
 default['coopr']['coopr_site']['server.host'] = '127.0.0.1'
+
+# Set the following property to use an external ZooKeeper quorum:
+# default['coopr']['coopr_site']['server.zookeeper.quorum'] = 'localhost:2181'
+
+# Set the following attribtues to use an external MySQL (or PostgreSQL, see docs for supported RDBMS)
 # default['coopr']['coopr_site']['server.jdbc.driver'] = 'com.mysql.jdbc.Driver'
 # default['coopr']['coopr_site']['server.jdbc.connection.string'] = 'jdbc:mysql://127.0.0.1:3306/coopr?useLegacyDatetimeCode=false'
 # default['coopr']['coopr_site']['server.db.user'] = 'coopr'
