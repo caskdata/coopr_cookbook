@@ -18,6 +18,6 @@
 #
 
 # URL to repository
-default['coopr']['repo']['apt_repo_url'] = 'http://repository.cask.co/ubuntu/precise/amd64/releases'
-default['coopr']['repo']['apt_components'] = ['releases']
-default['coopr']['repo']['yum_repo_url'] = 'http://repository.cask.co/centos/6/x86_64/releases'
+default['coopr']['repo']['apt_repo_url'] = 'http://repository.cask.co/ubuntu/precise/amd64/coopr/0.9'
+default['coopr']['repo']['apt_components'] = ['coopr']
+default['coopr']['repo']['yum_repo_url'] = 'http://repository.cask.co/centos/6/x86_64/coopr/0.9'
