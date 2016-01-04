@@ -20,7 +20,7 @@
 case node['platform_family']
 when 'debian'
   include_recipe 'apt'
-  apt_repository 'cask' do
+  apt_repository 'coopr' do
     uri node['coopr']['repo']['apt_repo_url']
     distribution node['lsb']['codename']
     components node['coopr']['repo']['apt_components']
@@ -30,8 +30,8 @@ when 'debian'
   end
 when 'rhel'
   include_recipe 'yum'
-  yum_repository 'cask' do
-    description 'Cask YUM repository'
+  yum_repository 'coopr' do
+    description 'Coopr YUM repository'
     url node['coopr']['repo']['yum_repo_url']
     gpgkey "#{node['coopr']['repo']['yum_repo_url']}/pubkey.gpg"
     gpgcheck true
