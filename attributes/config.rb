@@ -38,6 +38,6 @@ default['coopr']['coopr_site']['server.host'] = '127.0.0.1'
 # default['coopr']['coopr_site']['server.jdbc.validation.query'] = 'SELECT 1'
 
 # provisioner-site.xml
-default['coopr']['provisioner_site']['provisioner.server.uri'] = 'http://127.0.0.1:55054'
+default['coopr']['provisioner_site']['provisioner.server.uri'] = 'http://127.0.0.1:55055'
 default['coopr']['provisioner_site']['provisioner.register.ip'] = '127.0.0.1'
 default['coopr']['provisioner_site']['provisioner.log.level'] = 'info'
