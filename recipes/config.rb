@@ -48,7 +48,7 @@ if node['coopr'].key?('coopr_security')
 
   template "#{coopr_conf_dir}/coopr-security.xml" do
     source 'generic-site.xml.erb'
-    mode 0600
+    mode '0600'
     owner node['coopr']['user']
     group node['coopr']['group']
     variables my_vars

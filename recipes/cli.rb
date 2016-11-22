@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: coopr
-# Recipe:: default
+# Recipe:: cli
 #
-# Copyright © 2013-2014 Cask Data, Inc.
+# Copyright © 2013-2016 Cask Data, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,15 +19,6 @@
 
 include_recipe 'coopr::repo'
 
-# Create our user and group
-group node['coopr']['group'] do
-  action :create
+package 'coopr-cli' do
+  action :install
 end
-
-user node['coopr']['user'] do
-  action :create
-  gid node['coopr']['group']
-end
-
-include_recipe 'coopr::config'
-include_recipe 'coopr::cli'
