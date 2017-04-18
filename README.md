@@ -15,20 +15,21 @@
 * JDBC-compatible database (MySQL, PostgreSQL, Oracle DB)
 * JDBC driver JARs
 
-# Usage
+## Usage
 
 This cookbook is designed to install [Coopr](http://coopr.io) using the built-in ZooKeeper and Derby. A full installation
 simply needs the `coopr::fullstack` recipe to be included in your server's run_list.
 
-# Attributes
+### Attributes
 
 * `['coopr']['conf_dir']` - The directory used inside `/etc/coopr` and used via the alternatives system. Default `conf.chef`
 * `['coopr']['repo']['yum_repo_url']` - Specifies URL for fetching RPM packages via YUM
 * `['coopr']['repo']['apt_repo_url']` - Specifies URL for fetching DEB packages via APT
 * `['coopr']['repo']['apt_components']` - Repository components to use for APT repositories
 
-# Recipes
+### Recipes
 
+* `cli` - Installs the `coopr-cli` package
 * `config` - Configures all services
 * `default` - Runs `config` and `repo` recipes
 * `fullstack` - Installs all packages and services on a single node
@@ -37,11 +38,11 @@ simply needs the `coopr::fullstack` recipe to be included in your server's run_l
 * `server` - Installs the `coopr-server` package and service
 * `ui` - Installs the `coopr-ui` package and service
 
-# Author
+## Author
 
 Author:: Cask Data, Inc. (<ops@cask.co>)
 
-# License
+## License
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this software except in compliance with the License.
