@@ -20,9 +20,15 @@
 case node['platform_family']
 when 'debian'
   include_recipe 'apt'
+  codename = node['lsb']['codename']
+  case codename
+  when 'raring', 'saucy', 'trusty', 'utopic', 'vivid', 'wily', 'xenial', 'wheezy', 'jessie', 'stretch'
+    codename = 'precise'
+    Chef::Log.warn('Overriding repository distribution to Precise')
+  end
   apt_repository 'coopr' do
     uri node['coopr']['repo']['apt_repo_url']
-    distribution node['lsb']['codename']
+    distribution codename
     components node['coopr']['repo']['apt_components']
     action :add
     arch 'amd64'
