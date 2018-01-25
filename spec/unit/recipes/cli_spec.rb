@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe 'coopr::cli' do
-  context 'on Centos 6.6 x86_64' do
+  context 'on Centos 6.9 x86_64' do
     let(:chef_run) do
-      ChefSpec::SoloRunner.new(platform: 'centos', version: 6.6) do |node|
+      ChefSpec::SoloRunner.new(platform: 'centos', version: 6.9) do |node|
         node.automatic['domain'] = 'example.com'
       end.converge(described_recipe)
     end
