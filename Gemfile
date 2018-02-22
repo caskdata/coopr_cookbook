@@ -25,7 +25,7 @@ if RUBY_VERSION.to_f < 2.1
   gem 'dep_selector', '< 1.0.4'
   gem 'ffi-yajl', '< 2.3'
   gem 'net-http-persistent', '< 3.0'
-  gem 'nokogiri', '< 1.7'
+  gem 'nokogiri'
 end
 
 if RUBY_VERSION.to_f < 2.0
